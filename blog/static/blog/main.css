@@ -1,12 +1,12 @@
 body {
-  background: #fafafa;
+  background: #c5cae9;
   color: #000000;
   margin-top: 4rem;
   font-family:sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #214c9c;
+  color: #000000;
 }
 
 ul {
@@ -14,7 +14,7 @@ ul {
 }
 
 .bg-steel {
-  background-color:rgb(73, 70, 70);
+  background-color:#303F9F;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -22,7 +22,7 @@ ul {
 }
 
 .site-header .navbar-brand {
-  color: #29bd3d;
+  color: #ffffff;
 }
 .site-header .navbar-nav .nav-link:hover {
   color: #ffffff;
@@ -35,8 +35,8 @@ ul {
 .content-section {
   background: #ffffff;
   padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
+  border: 1px round #dddddd;
+  border-radius: 7px;
   margin-bottom: 20px;
 }
 
@@ -76,7 +76,7 @@ a.article-title:hover {
 }
 
 .article-metadata small {
-  color: #60bbf0;
+  color: #303F9F;
   text-decoration: none;
 }
 
