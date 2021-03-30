@@ -15,6 +15,8 @@ ul {
 
 .bg-steel {
   background-color:#303F9F;
+  border: round;
+  border-radius: 4px;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -97,7 +99,48 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-footer {
-  color: #04557a ;
-  align-items: baseline;  
+.footer {
+  background-color: #303F9F ;
+  color: whitesmoke;
+  border: round;
+  border-radius: 4px;
+  margin-top: 250px;
+  /* margin-bottom: 50px; */
+  left: 0;
+  bottom: 0;
+  width: 100%;  
+  position:static;
 }
+
+#button-create{
+  padding-right: 10%;
+  padding-left: 10%;
+  position:relative;
+  left: 330px;
+}
+
+#button-cancel{
+
+  padding-right: 10%;
+  padding-left: 10%;
+  position:relative;
+  left: 30px;
+}
+
+#create-post{
+
+  border-radius: 100%;
+  
+  position: fixed;
+  padding-left: 5%; 
+  padding-right: 5%;
+  padding-top: 3.4%;
+  padding-bottom: 3.4%;  
+  left: 470px;  
+
+}
+
+/* #create-post :hover{
+
+ 
+} */

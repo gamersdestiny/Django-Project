@@ -4,37 +4,18 @@
 	<h3>Blog Home</h3>
 	{%for posts in dicpost %}
 		<article class="media content-section">
+			<img class='rounded-circle article-img' src='{{ posts.author.profile.image.url }}' >
 		  <div class="media-body">
 		    <div class="article-metadata">
 		      <small>posted on {{ posts.datePosted }}</small>
 		      <a class="mr-2" href="#">By-{{ posts.author }}</a>
 		    </div>
-		    <h2><a class="article-title" href="#">{{ posts.title }}</a></h2>
+		    <h2><a class="article-title" href="{% url 'postDetail' posts.id %}">{{ posts.title }}</a></h2>
 		    <p class="article-content">{{ posts.content }}</p>
 		  </div>
-</article>
+		</article>
 	{%endfor%}
-	<h2>Blog Threads</h2>
-	{% for threads in dicThreads %}
-		<article class="media content-section">
-		  <div class="media-body">
-		    <div class="article-metadata">
-		      <small>posted on {{ threads.datePosted }}</small>
-		      <a class="mr-2" href="#">By-{{ threads.author }}</a>
-		    </div>
-		    <h2><a class="article-title" href="#">{{ threads.threadName }}</a></h2>
-		    <p class="article-content">{{ threads.threadDescription }}</p>
-		  </div>
-	{%endfor%}
+	<div>
+		<a id='create-post' class="btn btn-success" href='/post/create/'><b><big>+</big></big></b></a>
+	</div>
 {%endblock content%}
-
-<article class="media content-section">
-  <div class="media-body">
-    <div class="article-metadata">
-      <a class="mr-2" href="#">{{ post.author }}</a>
-      <small class="text-muted">{{ post.date_posted }}</small>
-    </div>
-    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-    <p class="article-content">{{ post.content }}</p>
-  </div>
-</article>
