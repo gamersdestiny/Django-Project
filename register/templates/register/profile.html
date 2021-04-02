@@ -12,10 +12,16 @@
 		<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ u_form|crispy}}
-		{{ p_form|crispy}}			
+		{{ p_form|crispy}}
+		
 		<div>
-			<button class="btn btn-outline-info" type="submit">upload</button>
+			<button id="button-P-upload"class="btn btn-outline-primary" type="submit">upload</button>
 			</div>
 		</form>
 	  </div>
 	{%endblock content%}
+
+
+
+
+	

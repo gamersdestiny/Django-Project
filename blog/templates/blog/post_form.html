@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {%block content%}
 <div class="content-section">
-    <fieldset class="form-group"><h2>Create your post</h2></fieldset>
+    <fieldset class="form-group"><h2>Write your post</h2></fieldset>
     <form method="POST">
     {% csrf_token %}
     {{ form|crispy}}
     <div>
-        <button id='button-create' class="btn btn-outline-success" type="submit">Done</button>
         <a id='button-cancel' class="btn btn-outline-danger" href="/">Cancel</a>
+        <button id='button-U-done' class="btn btn-outline-success" type="submit">Done</button>
     </div>
     </form>
   

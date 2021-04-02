@@ -113,34 +113,58 @@ a.article-title:hover {
 }
 
 #button-create{
-  padding-right: 10%;
-  padding-left: 10%;
-  position:relative;
-  left: 330px;
+ 
+  color: whitesmoke;
+  border-width:3px;
+  border-color: whitesmoke;
+  
+  
+}
+
+img:hover{
+
+  background-color: rgb(71, 180, 223);
+  
+
 }
 
 #button-cancel{
 
+  padding-right: 7%;
+  padding-left: 7%;
+  position:relative;
+  left: 0px;
+}
+
+#button-U-done{
+
   padding-right: 10%;
   padding-left: 10%;
   position:relative;
-  left: 30px;
+  left:0px;
 }
 
-#create-post{
+#button-update:hover{
 
-  border-radius: 100%;
+  color: white;
+
+}
+
+#button-D-delete:hover{
+
+  color:white
+}
+
+#button-P-upload{
+  color:black;
+}
+
+#button-P-upload:hover{
+  color:white;
+}
+
+img{
+  width: 30px;
+  height: 30px;
   
-  position: fixed;
-  padding-left: 5%; 
-  padding-right: 5%;
-  padding-top: 3.4%;
-  padding-bottom: 3.4%;  
-  left: 470px;  
-
 }
-
-/* #create-post :hover{
-
- 
-} */
