@@ -21,7 +21,9 @@
   <body>
       <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
+        <div class="container">          
+          <a id="button-create" href="/post/create" ><img id="create-post-img" class='rounded-circle' src="\media\add-btn1.png"></a>
+          
           <a class="navbar-brand mr-4" href="/">Guna Blog</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="False" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,8 +36,9 @@
               {% if user.is_authenticated%}
               <div class="navbar-nav">
                 <a class="nav-item nav-link" href="/profile">Profile</a>
-              <a class="nav-item nav-link" href="/logout">Logout</a>
-              <a class="nav-item nav-link" href="/contact">Contact</a>
+                <a class="nav-item nav-link" href="/logout">Logout</a>                
+                <a class="nav-item nav-link" href="/admin">Admin</a>
+                <a class="nav-item nav-link" href="/contact">Contact</a>
               </div>
               {% else %}
               <div class="navbar-nav">
@@ -69,5 +72,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>   
   </body>
-  <footer class="mb-1">Contact</br> Gmail: guna57012@gmail.com</footer>
+  <div class = footer>
+    <p>Contact</br> Gmail: guna57012@gmail.com</p>
+  </div>
+  
 </html>
