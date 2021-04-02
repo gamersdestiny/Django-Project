@@ -1,13 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from register.forms import signUpForm, updateUserForm, updateProfileForm
 
 # Create your views here.
 def signup(request):
+	if request.method == 'POST':
+		form = signUpForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data.get('username')
+			messages.success(request, f'account created for {username} successfully')
+			return redirect('/')
+	else:
+		form = signUpForm()
+
+	return render(request, 'register/signup.html', {'form': form} )
+@login_required
+def profile(request):
 
 	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
+		u_form = updateUserForm(request.POST, instance=request.user)
+		p_form = updateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+		if u_form.is_valid() and p_form.is_valid:
+			u_form.save()
+			p_form.save()
+			messages.success(request, f'Fieds updated successfully')
+			return redirect('/profile')
 	else:
-		form = UserCreationForm()
+		u_form = updateUserForm(instance=request.user)
+		p_form = updateProfileForm(instance=request.user.profile)
 
-	return render(request, 'register/signup.html', {'signupform': form} )
+	context = {
+		'u_form' : u_form,
+		'p_form' : p_form
+	}
+	
+	return render(request, 'register/profile.html', context)

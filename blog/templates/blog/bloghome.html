@@ -1,40 +1,34 @@
 {%extends 'blog/base.html'%}
 
 {%block content%}
-	<h2>Blog Home</h2>
+	<h3>Blog Home</h3>
 	{%for posts in dicpost %}
 		<article class="media content-section">
+			<img class='rounded-circle article-img' src='{{ posts.author.profile.image.url }}' >
 		  <div class="media-body">
 		    <div class="article-metadata">
 		      <small>posted on {{ posts.datePosted }}</small>
 		      <a class="mr-2" href="#">By-{{ posts.author }}</a>
 		    </div>
-		    <h2><a class="article-title" href="#">{{ posts.title }}</a></h2>
+		    <h2><a class="article-title" href="{% url 'postDetail' posts.id %}">{{ posts.title }}</a></h2>
 		    <p class="article-content">{{ posts.content }}</p>
 		  </div>
-</article>
-	{%endfor%}
-	<h2>Blog Threads</h2>
-	{% for threads in dicThreads %}
-		<article class="media content-section">
-		  <div class="media-body">
-		    <div class="article-metadata">
-		      <small>posted on {{ threads.datePosted }}</small>
-		      <a class="mr-2" href="#">By-{{ threads.author }}</a>
-		    </div>
-		    <h2><a class="article-title" href="#">{{ threads.threadName }}</a></h2>
-		    <p class="article-content">{{ threads.threadDescription }}</p>
-		  </div>
+		</article>
+		<div>
+
+
+
+			
+
+
+
+			<!-- <div dir="auto" class="css-901oao r-1awozwy r-jwli3a r-6koalj r-18u37iz r-16y2uox r-1qd0xha r-a023e6 r-b88u0q r-1777fci r-rjixqe r-dnmrzs r-bcqeeo r-q4m81j r-qvutc0"><svg viewBox="0 0 24 24" class="r-jwli3a r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1srniue"><g><path d="M8.8 7.2H5.6V3.9c0-.4-.3-.8-.8-.8s-.7.4-.7.8v3.3H.8c-.4 0-.8.3-.8.8s.3.8.8.8h3.3v3.3c0 .4.3.8.8.8s.8-.3.8-.8V8.7H9c.4 0 .8-.3.8-.8s-.5-.7-1-.7zm15-4.9v-.1h-.1c-.1 0-9.2 1.2-14.4 11.7-3.8 7.6-3.6 9.9-3.3 9.9.3.1 3.4-6.5 6.7-9.2 5.2-1.1 6.6-3.6 6.6-3.6s-1.5.2-2.1.2c-.8 0-1.4-.2-1.7-.3 1.3-1.2 2.4-1.5 3.5-1.7.9-.2 1.8-.4 3-1.2 2.2-1.6 1.9-5.5 1.8-5.7z"></path></g></svg><span class="css-901oao css-16my406 css-bfa6kz r-poiln3 r-bcqeeo r-qvutc0"></span>
+
+
+
+			<svg viewBox="0 0 24 24" class="r-jwli3a r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1srniue"><g><path d="M8.8 7.2H5.6V3.9c0-.4-.3-.8-.8-.8s-.7.4-.7.8v3.3H.8c-.4 0-.8.3-.8.8s.3.8.8.8h3.3v3.3c0 .4.3.8.8.8s.8-.3.8-.8V8.7H9c.4 0 .8-.3.8-.8s-.5-.7-1-.7zm15-4.9v-.1h-.1c-.1 0-9.2 1.2-14.4 11.7-3.8 7.6-3.6 9.9-3.3 9.9.3.1 3.4-6.5 6.7-9.2 5.2-1.1 6.6-3.6 6.6-3.6s-1.5.2-2.1.2c-.8 0-1.4-.2-1.7-.3 1.3-1.2 2.4-1.5 3.5-1.7.9-.2 1.8-.4 3-1.2 2.2-1.6 1.9-5.5 1.8-5.7z"></path></g></svg>
+
+			<span class="css-901oao css-16my406 css-bfa6kz r-poiln3 r-bcqeeo r-qvutc0"></span>
+			</div> -->
 	{%endfor%}
 {%endblock content%}
-
-<article class="media content-section">
-  <div class="media-body">
-    <div class="article-metadata">
-      <a class="mr-2" href="#">{{ post.author }}</a>
-      <small class="text-muted">{{ post.date_posted }}</small>
-    </div>
-    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-    <p class="article-content">{{ post.content }}</p>
-  </div>
-</article>
