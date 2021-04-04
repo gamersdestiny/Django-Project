@@ -113,7 +113,6 @@ img:hover{
 
   background-color: rgb(71, 180, 223);
   
-
 }
 
 #button-cancel{
@@ -155,4 +154,23 @@ img{
   width: 30px;
   height: 30px;
   
+}
+
+#userProfilediv{
+
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 3px;
+  padding-right: 4px;
+  padding-left: 10px;
+  border-radius: 5px;
+
+}
+
+#userProfileImage{
+
+  height: 60px;
+  width: 60px;
+  margin-top: 2px;
+  margin-bottom: 5px;
 }
