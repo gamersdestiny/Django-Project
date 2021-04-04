@@ -1,8 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from blog.models import post
+from django.urls import reverse
+from .models import profile as pro
+from django.contrib.auth.models import User, models
 from register.forms import signUpForm, updateUserForm, updateProfileForm
+from django.views.generic import ListView
 
 # Create your views here.
 def signup(request):
@@ -11,12 +16,13 @@ def signup(request):
 		if form.is_valid():
 			form.save()
 			username = form.cleaned_data.get('username')
-			messages.success(request, f'account created for {username} successfully')
-			return redirect('/')
+			messages.success(request, f'Account created for {username} successfully')
+			return redirect('/login')
 	else:
 		form = signUpForm()
 
 	return render(request, 'register/signup.html', {'form': form} )
+
 @login_required
 def profile(request):
 

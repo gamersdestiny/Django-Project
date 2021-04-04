@@ -99,18 +99,6 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-.footer {
-  background-color: #303F9F ;
-  color: whitesmoke;
-  border: round;
-  border-radius: 4px;
-  margin-top: 250px;
-  /* margin-bottom: 50px; */
-  left: 0;
-  bottom: 0;
-  width: 100%;  
-  position:static;
-}
 
 #button-create{
  

@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.urls import reverse
 from .models import post, Threads
+from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 def home(request):
@@ -13,7 +15,19 @@ class postListView(ListView):
 	model = post
 	template_name = 'blog/bloghome.html'
 	context_object_name = 'dicpost'
+	paginate_by = 4 
 	ordering = ['-datePosted']
+
+class userPostListView(ListView):
+	model = post
+	template_name = 'blog/userPosts.html'
+	context_object_name = 'dicpost'
+	paginate_by = 4 
+	
+	def get_queryset(self):
+		user = get_object_or_404(User, username=self.kwargs.get('username'))
+		return post.objects.filter(author=user).order_by('-datePosted')
+
 
 class postDetailView(DetailView):
 	model = post
