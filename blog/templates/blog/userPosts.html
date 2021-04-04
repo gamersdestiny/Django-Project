@@ -1,10 +1,10 @@
 {%extends 'blog/base.html'%}
 
 {%block content%}
-	<h3>Blog Home</h3>
+<h3>Posts by <b>{{ view.kwargs.username }}</b> ({{ page_obj.paginator.count }}) </h3>
 	{%for posts in dicpost %}
 		<article class="media content-section">
-			<a  href="{% url 'userProfile' posts.author %}"><img class='rounded-circle article-img' src='{{ posts.author.profile.image.url }}' ></a>
+			<a  href="#"><img class='rounded-circle article-img' src='{{ posts.author.profile.image.url }}' ></a>
 		  <div class="media-body">
 		    <div class="article-metadata">
 		      <small>posted on {{ posts.datePosted }}</small>
