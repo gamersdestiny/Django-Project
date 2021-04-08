@@ -2,7 +2,7 @@
 
 {%block content%}
 		<article class="media content-section mt-3 ">
-			<a  href="#"><img class='rounded-circle article-img' src='{{ object.author.profile.image.url }}' ></a>
+			<a  href="{% url 'userProfile' object.author %}"><img class='rounded-circle article-img' src='{{ object.author.profile.image.url }}' ></a>
 			<div class="media-body">
 		    	<div class="article-metadata">
 		      		<small>posted on {{ object.datePosted }}</small>
