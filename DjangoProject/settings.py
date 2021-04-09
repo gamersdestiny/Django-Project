@@ -25,7 +25,7 @@ SECRET_KEY = 'd!s)-=7jktb&w85105qcyttu&q@q!!3w*bdx5m-od45^niy1qv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['destinyblog.herokuapp.com']
 
 
 # Application definition
