@@ -1,2 +1,1 @@
 web: gunicorn gitDjango.wsgi 
-web: python DjangoProject.py runserver 0.0.0.0:$PORT
