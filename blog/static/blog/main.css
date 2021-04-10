@@ -113,7 +113,7 @@ a.article-title:hover {
 
 img:hover{
 
-  background-color: rgb(71, 180, 223);
+  background-color: rgb(70, 176, 234);
   
 }
 
@@ -202,7 +202,11 @@ img{
 
 #pgithub {
   border: 1px round white;
-  border-radius: 8px;
+  border-radius: 15px;
+}
+
+#pgithub:hover{
+  background-color: whitesmoke;
 }
 
 #pgmail {
