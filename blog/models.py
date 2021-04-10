@@ -8,7 +8,7 @@ class post(models.Model):
 	content = models.TextField()
 	shortDescription = models.TextField()
 	datePosted = models.DateTimeField(default= timezone.now)
-	image = models.FileField(default="filedefault.jpg", null=True, blank=True)
+	image = models.ImageField(default="filedefault.jpg", upload_to='post_pictures')
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	
 	def __str__(self):
