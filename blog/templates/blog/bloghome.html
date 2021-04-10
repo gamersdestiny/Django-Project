@@ -11,10 +11,12 @@
 		      <a class="mr-2" href="{% url 'userPosts' posts.author.username %}">By-{{ posts.author }}</a>
 		    </div>
 		    <h2><a class="article-title" href="{% url 'postDetail' posts.id %}">{{ posts.title }}</a></h2>
-		    <p class="article-content">{{ posts.content }}</p>
+		    <p class="article-content">{{ posts.shortDescription }}</p>
+			
+			<img id="postImage" src="{{posts.image.url}}" alt="{{ posts.title }}">
+
 		  </div>
 		</article>
-		<div>
 	{%endfor%}
 
 	{% if page_obj.has_previous %}
