@@ -3,7 +3,7 @@
 {%block content%}
 <div class="content-section">
     <fieldset class="form-group"><h2>Write your post</h2></fieldset>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy}}
         <div>
