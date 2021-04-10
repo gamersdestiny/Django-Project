@@ -5,8 +5,7 @@
 	{%for posts in dicpost|slice:":1" %}
 		<div id="userProfilediv">
             <img id="userProfileImage" class="rounded-circle" src="{{ posts.author.profile.image.url }}" >
-            <h5 id="userProfileName">Name: {{posts.author.username}}</h5>
-            <h5 id="userProfileEmail">Email: {{ posts.author.email }}</h5>
+            <h5 id="userProfileName">Name: {{posts.author.username}}</h5> 
         </div>
 	{%endfor%}
 
