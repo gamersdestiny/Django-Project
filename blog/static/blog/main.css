@@ -189,3 +189,23 @@ img{
   padding-bottom: 5px;
 
 }
+
+#pinstagram {
+  border: 1px round white;
+  border-radius: 8px;
+}
+
+#ptwitter {
+  border: 1px round white;
+  border-radius: 8px;
+}
+
+#pgithub {
+  border: 1px round white;
+  border-radius: 8px;
+}
+
+#pgmail {
+  border: 1px round white;
+  border-radius: 8px;
+}
