@@ -15,6 +15,7 @@ import os
 import django_heroku
 import ibm_boto3
 from ibm_botocore.client import Config, ClientError
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,7 +47,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'register.apps.RegisterConfig',
     'crispy_forms',
-    'storages'
 
 ]
 
