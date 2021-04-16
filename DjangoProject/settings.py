@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import ibm_boto3
+from ibm_botocore.client import Config, ClientError
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,9 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = 'd!s)-=7jktb&w85105qcyttu&q@q!!3w*bdx5m-od45^niy1qv'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == 'True' )
-#DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = ['destinyblog.herokuapp.com']
 
@@ -42,7 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'register.apps.RegisterConfig',
-    'crispy_forms'
+    'crispy_forms',
+    'storages'
+
 ]
 
 MIDDLEWARE = [
@@ -111,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -144,5 +149,19 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True 
 EMAIL_HOST_USER = os.environ.get('gunaGmail')
 EMAIL_HOST_PASSWORD = os.environ.get('gunaGmailPassword')
+
+
+# AWS_ACCESS_KEY_ID = "7A9AW8hhouXWHPbQoX314djsKfY--Be6Z1GR7s7CtrcW"
+# AWS_SECRET_ACCESS_KEY = "crn:v1:bluemix:public:cloud-object-storage:global:a/2d6b2764857d44c880e9b5e1d0b7593c:52bd7839-0334-4219-9368-4736ca6a15cf::"
+# AWS_STORAGE_BUCKET_NAME = "destiny-blog-bucket"
+# IBM_BUCKET_ENDPOINT = "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints"
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#s3boto3.S3Boto3Storage
+
+
+
+#IBM_BUCKET = "destiny-blog-bucket"
+#IBM_BUCKET_TOKEN = "OinyXDe7q2nfC93aEWpT2kPvLGi6WozShMj2H9MYVLux" # eg "W00YixxxxxxxxxxMB-odB-2ySfTrFBIQQWanc--P3byk"
+#IBM_BUCKET_CRN = "crn:v1:bluemix:public:cloud-object-storage:global:a/2d6b2764857d44c880e9b5e1d0b7593c:52bd7839-0334-4219-9368-4736ca6a15cf::" # eg "crn:v1:bluemix:public:cloud-object-storage:global:a/3bf0d9003xxxxxxxxxx1c3e97696b71c:d6f04d83-6c4f-4a62-a165-696756d63903::"
 
 django_heroku.settings(locals())
