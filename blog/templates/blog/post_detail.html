@@ -12,7 +12,7 @@
 					{% endif %}	
 				</div>
 		    	<h3 class="article-title">{{ object.title }}</h3>
-				<img id="postImage" src="{{object.image.url}}" alt="{{ posts.title }}">
+				<img id="postImage" src="{{object.image.url}}" alt="{{ object.title }}" onerror="this.style.display='none'">
 		    	<p class="article-content">{{ object.content }}</p>
 			
 			</div>
