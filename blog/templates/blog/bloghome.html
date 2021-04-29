@@ -2,6 +2,7 @@
 
 {%block content%}
 	<h3>Blog Home</h3>
+
 	{%for posts in dicpost %}
 		<article class="media content-section">
 			<a  href="{% url 'userProfile' posts.author %}"><img class='rounded-circle article-img' src='{{ posts.author.profile.image.url }}' alt="{{posts.author}}" ></a>
@@ -12,11 +13,36 @@
 		    </div>
 		    <h2><a class="article-title" href="{% url 'postDetail' posts.id %}">{{ posts.title }}</a></h2>
 		    <p class="article-content">{{ posts.shortDescription }}</p>
-			
 			<img id="postImage" src="{{posts.image.url}}" alt="{{ posts.title }}" onerror="this.style.display='none'" >
-
-		  </div>
+			<div id="likebutton">
+				<button id="heartbtn" style=" border: none; outline: none; background-color: white; cursor: pointer;" >
+					<span id="icon" style="color: red; border: none; outline: none; background-color: white; cursor: pointer;"><i class="far fa-heart"></i></span> like
+				</button>
+				<button id="heartbrkbtn" style=" border: none; outline: none; background-color: white; cursor: pointer;"  >
+					<span id="icon" style="color: red; border: none; outline: none; background-color: white; cursor: pointer;"><i class="fas fa-heart-broken"></i></span> dislike
+				</button>
+				<script>				
+				function clicked(){
+					var count = 0;
+						var btn = document.getElementById("heartbtn");
+						var icon = document.getElementById("icon")
+						icon.innerHTML = `<i class="fas fa-heart"></i>`
+						btn.onclick = function () {
+							if (count %2 === 0) {
+								count++;
+								icon.innerHTML = `<i class="far fa-heart"></i>`
+							} else {
+								count--
+								icon.innerHTML = `<i class="fas fa-heart"></i>`
+							}
+						}
+					}
+				</script>
+				</div>		    
+		</div>
+		  
 		</article>
+		
 	{%endfor%}
 
 	{% if page_obj.has_previous %}
