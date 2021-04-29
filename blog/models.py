@@ -10,7 +10,9 @@ class post(models.Model):
 	datePosted = models.DateTimeField(default= timezone.now)
 	image = models.FileField(default="filedefault.jpg", null=True, blank=True, upload_to='post_pictures')
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
-	
+	likes = models.ManyToManyField(User, related_name="liked")
+
+
 	def __str__(self):
 		return self.title
 
