@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
-import ibm_boto3
-from ibm_botocore.client import Config, ClientError
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +45,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'register.apps.RegisterConfig',
     'crispy_forms',
+    'storages',
 
 ]
 
@@ -151,17 +150,17 @@ EMAIL_HOST_USER = os.environ.get('gunaGmail')
 EMAIL_HOST_PASSWORD = os.environ.get('gunaGmailPassword')
 
 
-# AWS_ACCESS_KEY_ID = "7A9AW8hhouXWHPbQoX314djsKfY--Be6Z1GR7s7CtrcW"
-# AWS_SECRET_ACCESS_KEY = "crn:v1:bluemix:public:cloud-object-storage:global:a/2d6b2764857d44c880e9b5e1d0b7593c:52bd7839-0334-4219-9368-4736ca6a15cf::"
-# AWS_STORAGE_BUCKET_NAME = "destiny-blog-bucket"
-# IBM_BUCKET_ENDPOINT = "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints"
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#s3boto3.S3Boto3Storage
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_Access_key')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_Secret_Key')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_Bucket_Name')
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+AWS_S3_REGION_NAME = "ap-south-1"
+AWS_S3_SIGNATURE_VERSION = "s3v4"
 
-#IBM_BUCKET = "destiny-blog-bucket"
-#IBM_BUCKET_TOKEN = "OinyXDe7q2nfC93aEWpT2kPvLGi6WozShMj2H9MYVLux" # eg "W00YixxxxxxxxxxMB-odB-2ySfTrFBIQQWanc--P3byk"
-#IBM_BUCKET_CRN = "crn:v1:bluemix:public:cloud-object-storage:global:a/2d6b2764857d44c880e9b5e1d0b7593c:52bd7839-0334-4219-9368-4736ca6a15cf::" # eg "crn:v1:bluemix:public:cloud-object-storage:global:a/3bf0d9003xxxxxxxxxx1c3e97696b71c:d6f04d83-6c4f-4a62-a165-696756d63903::"
 
 django_heroku.settings(locals())
