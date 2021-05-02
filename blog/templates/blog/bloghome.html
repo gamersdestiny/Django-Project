@@ -4,6 +4,8 @@
 	<h3>Blog Home</h3>
 
 	{%for posts in dicpost %}
+	<link rel="stylesheet" href="E:\Django\gitDjango\blog\static\blog\likebutton.css">
+
 		<article class="media content-section">
 			<a  href="{% url 'userProfile' posts.author %}"><img class='rounded-circle article-img' src='{{ posts.author.profile.image.url }}' alt="{{posts.author}}" ></a>
 		  <div class="media-body">
@@ -14,31 +16,71 @@
 		    <h2><a class="article-title" href="{% url 'postDetail' posts.id %}">{{ posts.title }}</a></h2>
 		    <p class="article-content">{{ posts.shortDescription }}</p>
 			<img id="postImage" src="{{posts.image.url}}" alt="{{ posts.title }}" onerror="this.style.display='none'" >
-			<div id="likebutton">
-				<button id="heartbtn" style=" border: none; outline: none; background-color: white; cursor: pointer;" >
+			<div class="likebutton">
+				<!-- <button id="heartbtn" style=" border: none; outline: none; background-color: white; cursor: pointer;" >
 					<span id="icon" style="color: red; border: none; outline: none; background-color: white; cursor: pointer;"><i class="far fa-heart"></i></span> like
+				</button> -->
+				<button class="btn"  onclick="clic('{{posts}}')" style="background-color: white;">
+					<span id="likebtnid-{{posts}}" style="color: red; background-color: white;" ><i class="far fa-heart"></i></span>
+					<span id="count-{{posts}}">0 likes</span>
 				</button>
-				<button id="heartbrkbtn" style=" border: none; outline: none; background-color: white; cursor: pointer;"  >
-					<span id="icon" style="color: red; border: none; outline: none; background-color: white; cursor: pointer;"><i class="fas fa-heart-broken"></i></span> dislike
+				
+				<button class="btn"  onclick="clicke('{{posts}}')" style="background-color: white;">
+					<span id="dislikebtnid-{{posts}}" style="color: black;"><i class="fas fa-heart-broken"></i></span>
+					<span id="count2-{{posts}}">0 dislikes</span>
 				</button>
-				<script>				
-				function clicked(){
-					var count = 0;
-						var btn = document.getElementById("heartbtn");
-						var icon = document.getElementById("icon")
-						icon.innerHTML = `<i class="fas fa-heart"></i>`
-						btn.onclick = function () {
-							if (count %2 === 0) {
-								count++;
-								icon.innerHTML = `<i class="far fa-heart"></i>`
-							} else {
-								count--
-								icon.innerHTML = `<i class="fas fa-heart"></i>`
+
+				<script>
+
+					var like=0;
+					var dislike=0;
+
+					function clic(postvar){
+						button = document.getElementById('likebtnid-'+postvar)
+						count = document.getElementById('count-'+postvar)
+						if (like==0){
+							like++
+							if (dislike>=1){
+								dislike--
+								count2.innerHTML = dislike+' dislikes'
+								button2.innerHTML = `<i class="fas fa-heart-broken" style="color:black"></i>`
 							}
+							button.innerHTML = `<i class="fas fa-heart" style="color:red"></i>`
+							count.innerHTML = like+' likes'
+						} else {
+							like--
+							button.innerHTML = `<i class="far fa-heart" style="color:red"></i>`
+							count.innerHTML = like+' likes'
+						}
+					}
+					function clicke(postvar2){
+						button2 = document.getElementById('dislikebtnid-'+postvar2)
+						count2 = document.getElementById('count2-'+postvar2)
+						if (dislike==0){
+							dislike++
+							if (like>=1){
+								like--
+								button.innerHTML = '<i class="far fa-heart" style="color:red"></i>'
+								count.innerHTML = like+ ' likes'
+							}
+							
+							button2.innerHTML = `<i class="fas fa-heart-broken" style="color:red"></i>`
+							count2.innerHTML = dislike+' dislikes'
+							
+							
+						} else {
+							dislike--
+							// like++
+							button2.innerHTML = `<i class="fas fa-heart-broken" style="color:black"></i>`
+							count2.innerHTML = dislike+' dislikes'
+							
 						}
 					}
 				</script>
-				</div>		    
+				<!-- <button id="heartbrkbtn" style=" border: none; outline: none; background-color: white; cursor: pointer;"  >
+					<span id="icon" style="color: red; border: none; outline: none; background-color: white; cursor: pointer;"><i class="fas fa-heart-broken"></i></span> dislike
+				</button> -->
+			</div>		    
 		</div>
 		  
 		</article>
