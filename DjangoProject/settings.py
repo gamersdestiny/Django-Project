@@ -151,17 +151,4 @@ EMAIL_HOST_USER = os.environ.get('gunaGmail')
 EMAIL_HOST_PASSWORD = os.environ.get('gunaGmailPassword')
 
 
-# AWS_ACCESS_KEY_ID = "7A9AW8hhouXWHPbQoX314djsKfY--Be6Z1GR7s7CtrcW"
-# AWS_SECRET_ACCESS_KEY = "crn:v1:bluemix:public:cloud-object-storage:global:a/2d6b2764857d44c880e9b5e1d0b7593c:52bd7839-0334-4219-9368-4736ca6a15cf::"
-# AWS_STORAGE_BUCKET_NAME = "destiny-blog-bucket"
-# IBM_BUCKET_ENDPOINT = "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints"
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#s3boto3.S3Boto3Storage
-
-
-
-#IBM_BUCKET = "destiny-blog-bucket"
-#IBM_BUCKET_TOKEN = "OinyXDe7q2nfC93aEWpT2kPvLGi6WozShMj2H9MYVLux" # eg "W00YixxxxxxxxxxMB-odB-2ySfTrFBIQQWanc--P3byk"
-#IBM_BUCKET_CRN = "crn:v1:bluemix:public:cloud-object-storage:global:a/2d6b2764857d44c880e9b5e1d0b7593c:52bd7839-0334-4219-9368-4736ca6a15cf::" # eg "crn:v1:bluemix:public:cloud-object-storage:global:a/3bf0d9003xxxxxxxxxx1c3e97696b71c:d6f04d83-6c4f-4a62-a165-696756d63903::"
-
 django_heroku.settings(locals())
