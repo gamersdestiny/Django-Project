@@ -165,3 +165,4 @@ AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 
 django_heroku.settings(locals())
+
