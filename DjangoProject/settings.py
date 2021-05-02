@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
-import ibm_boto3
-from ibm_botocore.client import Config, ClientError
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +45,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'register.apps.RegisterConfig',
     'crispy_forms',
+    'storages',
 
 ]
 
@@ -151,4 +150,19 @@ EMAIL_HOST_USER = os.environ.get('gunaGmail')
 EMAIL_HOST_PASSWORD = os.environ.get('gunaGmailPassword')
 
 
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+#S3_BUCKET = os.environ.get('S3_BUCKET')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET')
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_REGION_NAME = "ap-south-1"
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+
+
 django_heroku.settings(locals())
+
